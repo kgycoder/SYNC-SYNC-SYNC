@@ -4234,3 +4234,144 @@ button, a, div, span, input {
 #np.fullscreen .np-lyrics-panel {
     display: none !important;
 }
+
+/* ════════════════════════════════════════════
+   FULLSCREEN FINAL OVERRIDE
+   — 모바일 !important 섹션보다 뒤에 위치해야 적용됨
+   — style.css 파일 맨 끝에 추가
+════════════════════════════════════════════ */
+
+/* 아트 영역 */
+#np.fullscreen .np-art-area,
+#np.fullscreen .np-art-area.has-lyrics {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 46% !important;
+    height: 100% !important;
+    flex: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 48px 16px 100px 40px !important;
+    gap: 0 !important;
+    min-height: unset !important;
+    z-index: 10 !important;
+}
+
+/* 앨범 아트 크기 */
+#np.fullscreen .np-art-shell,
+#np.fullscreen .np-art-area .np-art-shell,
+#np.fullscreen .np-art-area.has-lyrics .np-art-shell {
+    width: min(260px, 27vw, 36vh) !important;
+    margin-top: 0 !important;
+    flex-shrink: 0 !important;
+}
+
+/* 제목/아티스트 폰트 */
+#np.fullscreen .np-title {
+    font-size: clamp(11px, 1.1vw, 15px) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+#np.fullscreen .np-ch {
+    font-size: clamp(9px, 0.85vw, 11px) !important;
+}
+
+/* 재생바 */
+#np.fullscreen .np-pb {
+    height: 2px !important;
+}
+
+#np.fullscreen .np-pd {
+    width: 9px !important;
+    height: 9px !important;
+}
+
+#np.fullscreen .np-t {
+    font-size: 9px !important;
+    margin-top: 3px !important;
+}
+
+#np.fullscreen .np-prog-wrap {
+    width: 100% !important;
+}
+
+/* 패널 위치/크기 */
+#np.fullscreen .np-panel {
+    position: absolute !important;
+    background: none !important;
+    box-shadow: none !important;
+    padding: 8px 0 0 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    z-index: 15 !important;
+}
+
+#np.fullscreen .np-info-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+#np.fullscreen .np-act,
+#np.fullscreen .np-ctrl,
+#np.fullscreen .np-bottom-row {
+    display: none !important;
+}
+
+/* 일반 가사 패널 숨김 */
+#np.fullscreen .np-lyrics-panel {
+    display: none !important;
+}
+
+/* 전체화면 가사 컨테이너 */
+#np.fullscreen #np-fs-lyrics {
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: 58% !important;
+    height: 100% !important;
+    display: block !important;
+    overflow: hidden !important;
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%, black 10%, black 90%, transparent 100%
+    ) !important;
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%, black 10%, black 90%, transparent 100%
+    ) !important;
+    padding: 0 32px 0 24px !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+}
+
+/* 가사 한 줄 — transform 크기 변환 없이 opacity/filter/color만 */
+#np.fullscreen .np-fs-lyric-line {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 56px !important;
+    display: flex !important;
+    align-items: center !important;
+    font-size: clamp(14px, 1.7vw, 22px) !important;
+    font-weight: 600 !important;
+    line-height: 1.35 !important;
+    word-break: keep-all !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    -webkit-font-smoothing: antialiased !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    transform-origin: left center !important;
+    /* transform transition 완전 제거 */
+    transition: opacity 0.40s cubic-bezier(0.4,0,0.2,1),
+                filter  0.40s cubic-bezier(0.4,0,0.2,1),
+                color   0.40s cubic-bezier(0.4,0,0.2,1) !important;
+}
