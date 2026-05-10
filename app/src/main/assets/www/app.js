@@ -2176,11 +2176,11 @@ const FS_SLOTS = [
 const FS_ROW_H  = 56;
 const FS_BEFORE = 2;
 const FS_AFTER  = 2;
-const FS_SLIDE  = 0;   // 슬라이드 진입 애니메이션 제거
+const FS_SLIDE  = 0;
 const FS_TRANS  = [
     'opacity  0.40s cubic-bezier(0.4,0,0.2,1)',
     'filter   0.40s cubic-bezier(0.4,0,0.2,1)',
-].join(', ');          // transform transition 제거
+].join(', ');
 
 function _fsColor(d) {
     if (d === 0) return 'rgba(255,255,255,0.97)';
